@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogos Escolares - Curiosidades</title>
+    <style>
+        header {
+            background-color: rgb(255, 0, 0);
+            color: rgb(245, 239, 241);
+            text-align: center;
+            padding: 10px;
+        }
+
+        main {
+            background-color: rgb(255, 255, 255);
+            color: rgb(50, 50, 50);
+            padding: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .post-relato {
+            margin-top: 20px;
+            border-top: 1px solid #ccc;
+            padding-top: 10px;
+            line-height: 1.6;
+        }
+
+        .post-relato p {
+            margin-bottom: 12px;
+        }
+
+        /* Galeria e Cards */
+        .galeria {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+            margin-top: 20px;
+        }
+
+        .card-foto {
+            border: 1px solid #e0e0e0;
+            border-radius: 10px;
+            padding: 12px;
+            background-color: #fafafa;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        img {
+            width: 100%;
+            height: auto;
+            max-height: 400px;
+            object-fit: cover;
+            display: block;
+            border-radius: 8px;
+        }
+
+        /* Legenda da foto */
+        .legenda-foto {
+            margin-top: 10px;
+            font-size: 0.95rem;
+            color: #555;
+            font-style: italic;
+            line-height: 1.4;
+        }
+
+        /* Texto explicativo abaixo da imagem */
+        .descricao-detalhada {
+            margin-top: 10px;
+            font-size: 0.9rem;
+            color: #333;
+            line-height: 1.5;
+        }
+
+        /* Botões de Interação */
+        .acoes-foto {
+            margin-top: 12px;
+            display: flex;
+            gap: 12px;
+        }
+
+        .btn-like {
+            font-size: 1rem;
+            padding: 8px 16px;
+            cursor: pointer;
+            border: 1px solid #ddd;
+            border-radius: 20px;
+            background-color: #ffffff;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            user-select: none;
+        }
+
+        .btn-like:hover {
+            background-color: #f0f0f0;
+            transform: translateY(-2px);
+        }
+
+        .btn-like:active {
+            transform: scale(0.95);
+        }
+
+        /* Estilo visual para quando o botão estiver ATIVADO */
+        .btn-joinha.ativo {
+            background-color: #e6f2ff;
+            border-color: #007bff;
+            color: #0056b3;
+        }
+
+        .btn-coracao.ativo {
+            background-color: #ffe6e6;
+            border-color: #ff4d4d;
+            color: #cc0000;
+        }
+
+        .contador {
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Curiosidades sobre os Jogos Escolares</h1>
+        <p>Vou compartilhar algumas curiosidades sobre os jogos escolares</p>
+    </header>
+
+    <main>
+        <h2>Meu primeiro post</h2>
+        <p><strong>Por:</strong> Felipe Carvalho</p>
+        <p>Boas-vindas, programador! Aqui vou te ensinar algumas curiosidades sobre os jogos escolares.</p>
+
+        <section class="post-relato">
+            <h3>A Nossa Trajetória: Drama e Emoção no Futsal</h3>
+            
+            <p>A estreia nos Jogos Escolares não foi nada fácil. No primeiro jogo, encaramos uma equipe fortíssima. Entramos em quadra meio nervosos, a bola parecia que queimava no pé e acabou não dando pra gente: <strong>perdemos na estreia por 2 a 1</strong>. O clima no vestiário depois do apito final foi pesado, mas nosso treinador chamou todo mundo para uma roda e lembrou que ainda tínhamos chances se déssemos a vida na partida seguinte.</p>
+
+            <p>No segundo jogo, era tudo ou nada. A torcida da escola lotou a arquibancada com faixas e instrumentos, fazendo um barulho surreal! A partida foi extremamente truncada, com faltas duras e chances perdidas dos dois lados. A bola bateu na trave duas vezes no segundo tempo! Disputado palmo a palmo até o último segundo do tempo regulamentar, o placar não saiu do <strong>0 a 0 eletrizante</strong>. A decisão da vaga acabou indo direto para a marca da cal: cobranças de pênaltis! ⚽🔥</p>
+
+            <p>O coração de todo mundo estava saindo pela boca. Cada cobrança parecia uma eternidade e o silêncio no ginásio antes dos chutes era de congelar a espinha. Alternamos os gols até a última série alternada. Foi quando nosso goleiro adivinhou o canto e fez uma defesa espetacular com a ponta dos dedos! Na sequência, nosso camisa 10 bateu no ângulo e estufou a rede: <strong>vencemos nos pênaltis por 4 a 3!</strong> A invasão na quadra foi imediata, todo mundo se abraçando e chorando de emoção. Uma reviravolta inesquecível que nos colocou na próxima fase!</p>
+        </section>
+
+        <div class="galeria">
+
+            <div class="card-foto">
+                <img src="https://images.unsplash.com/photo-1574629810360-7efbbe195018?w=800&auto=format&fit=crop"
+                    alt="Partida de futsal em ginásio esportivo escolar">
+                <p class="legenda-foto">Momento tenso da partida durante a fase de grupos. O time teve que correr dobrado para recompor a marcação!</p>
+                <p class="descricao-detalhada">Durante o primeiro tempo, a equipe adversária pressionou bastante a nossa saída de bola. Essa foto registra exatamente o instante em que ajustamos a marcação sob pressão, exigindo comunicação constante e muito preparo físico de todos em quadra.</p>
+                <div class="acoes-foto">
+                    <button class="btn-like btn-joinha">👍 <span class="contador contador-joinha">0</span></button>
+                    <button class="btn-like btn-coracao">❤️ <span class="contador contador-coracao">0</span></button>
+                </div>
+            </div>
+
+            <div class="card-foto">
+                <img src="https://images.unsplash.com/photo-1518091043644-c1d4457512c6?w=800&auto=format&fit=crop"
+                    alt="Jogador preparando cobrança de falta/pênalti no futsal">
+                <p class="legenda-foto">A hora da verdade: concentração total na cobrança de pênalti decisiva que nos garantiu a vitória!</p>
+                <p class="descricao-detalhada">A cobrança de pênalti exige um controle psicológico enorme. Com a torcida adversária fazendo barulho, o batedor precisou respirar fundo, escolher o canto com firmeza e mandar a bola fora do alcance do goleiro.</p>
+                <div class="acoes-foto">
+                    <button class="btn-like btn-joinha">👍 <span class="contador contador-joinha">0</span></button>
+                    <button class="btn-like btn-coracao">❤️ <span class="contador contador-coracao">0</span></button>
+                </div>
+            </div>
+
+            <div class="card-foto">
+                <img src="https://images.unsplash.com/photo-1526232761682-d26e03ac148e?w=800&auto=format&fit=crop"
+                    alt="Comemoração da equipe no campeonato escolar">
+                <p class="legenda-foto">Festa pura! Todo o time comemorando junto com a torcida logo após a última defesa na disputa por pênaltis.</p>
+                <p class="descricao-detalhada">Nada supera a sensação de dever cumprido após um jogo tão corrido. A união entre os atletas e a torcida escolar reforça como o esporte transforma vidas e cria memórias inesquecíveis para toda a vida.</p>
+                <div class="acoes-foto">
+                    <button class="btn-like btn-joinha">👍 <span class="contador contador-joinha">0</span></button>
+                    <button class="btn-like btn-coracao">❤️ <span class="contador contador-coracao">0</span></button>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <script>
+        const todosOsCards = document.querySelectorAll('.card-foto');
+
+        todosOsCards.forEach(card => {
+            const btnJoinha = card.querySelector('.btn-joinha');
+            const contadorJoinha = card.querySelector('.contador-joinha');
+
+            const btnCoracao = card.querySelector('.btn-coracao');
+            const contadorCoracao = card.querySelector('.contador-coracao');
+
+            let numJoinha = 0;
+            let curtiuJoinha = false;
+
+            let numCoracao = 0;
+            let curtiuCoracao = false;
+
+            // Lógica do Joinha
+            btnJoinha.addEventListener('click', () => {
+                if (!curtiuJoinha) {
+                    numJoinha++;
+                    btnJoinha.classList.add('ativo');
+                    curtiuJoinha = true;
+                } else {
+                    numJoinha--;
+                    btnJoinha.classList.remove('ativo');
+                    curtiuJoinha = false;
+                }
+                contadorJoinha.textContent = numJoinha;
+            });
+
+            // Lógica do Coração
+            btnCoracao.addEventListener('click', () => {
+                if (!curtiuCoracao) {
+                    numCoracao++;
+                    btnCoracao.classList.add('ativo');
+                    curtiuCoracao = true;
+                } else {
+                    numCoracao--;
+                    btnCoracao.classList.remove('ativo');
+                    curtiuCoracao = false;
+                }
+                contadorCoracao.textContent = numCoracao;
+            });
+        });
+    </script>
+</body>
+
+</html>
