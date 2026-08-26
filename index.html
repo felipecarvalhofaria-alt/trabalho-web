@@ -6,24 +6,82 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jogos Escolares - Curiosidades</title>
     <style>
+        /* Variáveis de cores (Modo Claro Padrão) */
+        :root {
+            --bg-body: #f4f4f9;
+            --bg-header: rgb(255, 0, 0);
+            --color-header: rgb(245, 239, 241);
+            --bg-main: rgb(255, 255, 255);
+            --color-texto: rgb(50, 50, 50);
+            --color-subtexto: #555;
+            --bg-card: #fafafa;
+            --border-card: #e0e0e0;
+            --btn-bg: #ffffff;
+            --btn-border: #ddd;
+            --btn-text: #333;
+        }
+
+        /* Variáveis para o Modo Escuro */
+        body.dark-mode {
+            --bg-body: #121212;
+            --bg-header: #b30000;
+            --color-header: #ffffff;
+            --bg-main: #1e1e1e;
+            --color-texto: #e0e0e0;
+            --color-subtexto: #aaa;
+            --bg-card: #2a2a2a;
+            --border-card: #3f3f3f;
+            --btn-bg: #333333;
+            --btn-border: #555;
+            --btn-text: #ffffff;
+        }
+
+        body {
+            background-color: var(--bg-body);
+            transition: background-color 0.3s ease;
+            margin: 0;
+            font-family: sans-serif;
+        }
+
         header {
-            background-color: rgb(255, 0, 0);
-            color: rgb(245, 239, 241);
+            background-color: var(--bg-header);
+            color: var(--color-header);
             text-align: center;
             padding: 10px;
+            position: relative;
         }
 
         main {
-            background-color: rgb(255, 255, 255);
-            color: rgb(50, 50, 50);
+            background-color: var(--bg-main);
+            color: var(--color-texto);
             padding: 20px;
             max-width: 800px;
             margin: 0 auto;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        /* Botão Tema */
+        .btn-tema {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            padding: 8px 14px;
+            border-radius: 20px;
+            border: 1px solid var(--btn-border);
+            background-color: var(--btn-bg);
+            color: var(--btn-text);
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.2s ease;
+        }
+
+        .btn-tema:hover {
+            transform: scale(1.05);
         }
 
         .post-relato {
             margin-top: 20px;
-            border-top: 1px solid #ccc;
+            border-top: 1px solid var(--border-card);
             padding-top: 10px;
             line-height: 1.6;
         }
@@ -41,11 +99,12 @@
         }
 
         .card-foto {
-            border: 1px solid #e0e0e0;
+            border: 1px solid var(--border-card);
             border-radius: 10px;
             padding: 12px;
-            background-color: #fafafa;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            background-color: var(--bg-card);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            transition: background-color 0.3s ease, border-color 0.3s ease;
         }
 
         img {
@@ -57,20 +116,19 @@
             border-radius: 8px;
         }
 
-        /* Legenda da foto */
+        /* Legendas e Textos */
         .legenda-foto {
             margin-top: 10px;
             font-size: 0.95rem;
-            color: #555;
+            color: var(--color-subtexto);
             font-style: italic;
             line-height: 1.4;
         }
 
-        /* Texto explicativo abaixo da imagem */
         .descricao-detalhada {
             margin-top: 10px;
             font-size: 0.9rem;
-            color: #333;
+            color: var(--color-texto);
             line-height: 1.5;
         }
 
@@ -85,9 +143,10 @@
             font-size: 1rem;
             padding: 8px 16px;
             cursor: pointer;
-            border: 1px solid #ddd;
+            border: 1px solid var(--btn-border);
             border-radius: 20px;
-            background-color: #ffffff;
+            background-color: var(--btn-bg);
+            color: var(--btn-text);
             transition: all 0.2s ease;
             display: flex;
             align-items: center;
@@ -96,7 +155,6 @@
         }
 
         .btn-like:hover {
-            background-color: #f0f0f0;
             transform: translateY(-2px);
         }
 
@@ -104,7 +162,7 @@
             transform: scale(0.95);
         }
 
-        /* Estilo visual para quando o botão estiver ATIVADO */
+        /* Botões ATIVADOS */
         .btn-joinha.ativo {
             background-color: #e6f2ff;
             border-color: #007bff;
@@ -125,6 +183,8 @@
 
 <body>
     <header>
+        <!-- Botão para alternar o tema -->
+        <button id="btn-tema" class="btn-tema">🌙 Modo Escuro</button>
         <h1>Curiosidades sobre os Jogos Escolares</h1>
         <p>Vou compartilhar algumas curiosidades sobre os jogos escolares</p>
     </header>
@@ -183,6 +243,7 @@
     </main>
 
     <script>
+        // Lógica dos Botões de Curtida
         const todosOsCards = document.querySelectorAll('.card-foto');
 
         todosOsCards.forEach(card => {
@@ -198,7 +259,6 @@
             let numCoracao = 0;
             let curtiuCoracao = false;
 
-            // Lógica do Joinha
             btnJoinha.addEventListener('click', () => {
                 if (!curtiuJoinha) {
                     numJoinha++;
@@ -212,7 +272,6 @@
                 contadorJoinha.textContent = numJoinha;
             });
 
-            // Lógica do Coração
             btnCoracao.addEventListener('click', () => {
                 if (!curtiuCoracao) {
                     numCoracao++;
@@ -225,6 +284,19 @@
                 }
                 contadorCoracao.textContent = numCoracao;
             });
+        });
+
+        // Lógica de Alternar Modo Claro / Modo Escuro
+        const btnTema = document.getElementById('btn-tema');
+
+        btnTema.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+
+            if (document.body.classList.contains('dark-mode')) {
+                btnTema.textContent = '☀️ Modo Claro';
+            } else {
+                btnTema.textContent = '🌙 Modo Escuro';
+            }
         });
     </script>
 </body>
